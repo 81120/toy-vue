@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>test Lue</title>
+</head>
+<body>
+  <div id='target'>
+    <form>
+      <input
+        type="text"
+        @model='count'
+        @click='handleClickInput'>
+      <span @bind='count'></span>
+      <button type="button" @click='increment'>increment</button>
+      <button type="button" @click='decrement'>decrement</button>
+      <button type="button" @click='alert("hello world")'>alert</button>
+    </form>
+  </div>
+  <script src='./index.js'></script>
+  <script>
+    let vm = new Lue({
+      el: '#target',
+      data: {
+        count: 0
+      },
+      methods: {
+        increment: function(){
+          this.count++
+        },
+        decrement: function(){
+          this.count--
+        },
+        alert: function(msg){
+          alert(msg)
+        },
+        handleClickInput: function(){
+          console.log(this.count)
+        }
+      }
+    });
+  </script>
+</body>
+</html>
